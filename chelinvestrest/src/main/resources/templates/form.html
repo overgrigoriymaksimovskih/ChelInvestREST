@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding-top: 20px;
+        }
+
+        form {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 2px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            text-align: center; /* Add this line to center the text */
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        .result-container {
+            width: 300px;
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .separator {
+            margin: 10px 0;
+            border-bottom: 1px dashed #bbb;
+            width: 100%;
+        }
+
+        .previous-results-container {
+            width: 300px;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .previous-result {
+            margin-bottom: 10px;
+            text-align: center; /* Центрируем текст */
+        }
+
+        .radio-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .radio-group label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        .radio-group input[type="radio"] {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>REST Client</h1>
+<form action="/send" method="post">
+    <label for="nSum">nSum:</label>
+    <input type="text" id="nSum" name="nSum"><br><br>
+
+    <label>sGender:</label><br>
+    <div class="radio-group">
+        <label for="genderM">
+            М
+            <input type="radio" id="genderM" name="sGender" value="М">
+        </label>
+        <label for="genderЖ">
+            Ж
+            <input type="radio" id="genderЖ" name="sGender" value="Ж">
+        </label>
+        <label for="genderС">
+            С
+            <input type="radio" id="genderС" name="sGender" value="С">
+        </label>
+    </div>
+
+    <label>sCase:</label><br>
+    <div class="radio-group">
+        <label for="caseИ">
+            И
+            <input type="radio" id="caseИ" name="sCase" value="И">
+        </label>
+        <label for="caseР">
+            Р
+            <input type="radio" id="caseР" name="sCase" value="Р">
+        </label>
+        <label for="caseД">
+            Д
+            <input type="radio" id="caseД" name="sCase" value="Д">
+        </label>
+        <label for="caseВ">
+            В
+            <input type="radio" id="caseВ" name="sCase" value="В">
+        </label>
+        <label for="caseТ">
+            Т
+            <input type="radio" id="caseТ" name="sCase" value="Т">
+        </label>
+        <label for="caseП">
+            П
+            <input type="radio" id="caseП" name="sCase" value="П">
+        </label>
+    </div>
+
+    <button type="submit">Отправить</button>
+</form>
+
+<div class="previous-results-container">
+    <div th:each="prevResult : ${previousResults}" class="previous-result">
+        <p th:text="${prevResult.nSum}"></p>
+        <p th:text="${prevResult.response}"></p>
+        <div class="separator"></div>
+    </div>
+</div>
+
+</body>
+</html>

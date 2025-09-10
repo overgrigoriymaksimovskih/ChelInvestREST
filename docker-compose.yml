@@ -1,0 +1,18 @@
+
+
+services:
+  
+  
+  chelinvestrest:
+    container_name: chelinvestrest
+    build:
+      context: ./
+      dockerfile: ./chelinvestrest/Dockerfile
+    environment:
+      HOST_URL: ${HOST_URL}
+      REST_SERVICE_PORT: ${REST_SERVICE_PORT}
+      API_RESTMODULE: ${API_RESTMODULE}
+      FORM_CONTROLLER: ${FORM_CONTROLLER}
+    restart: unless-stopped
+
+  
