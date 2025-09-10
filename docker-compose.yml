@@ -1,8 +1,4 @@
-
-
 services:
-  
-  
   chelinvestrest:
     container_name: chelinvestrest
     build:
@@ -13,6 +9,6 @@ services:
       REST_SERVICE_PORT: ${REST_SERVICE_PORT}
       API_RESTMODULE: ${API_RESTMODULE}
       FORM_CONTROLLER: ${FORM_CONTROLLER}
+    ports:
+      - "8087:8087"  # <--- Добавляем эту строку
     restart: unless-stopped
-
-  
