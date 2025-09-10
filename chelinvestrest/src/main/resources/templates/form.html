@@ -114,15 +114,15 @@
     <div class="radio-group">
         <label for="genderM">
             М
-            <input type="radio" id="genderM" name="sGender" value="М">
+            <input type="radio" id="genderM" name="sGender" value="М" required>
         </label>
         <label for="genderЖ">
             Ж
-            <input type="radio" id="genderЖ" name="sGender" value="Ж">
+            <input type="radio" id="genderЖ" name="sGender" value="Ж" required>
         </label>
         <label for="genderС">
             С
-            <input type="radio" id="genderС" name="sGender" value="С">
+            <input type="radio" id="genderС" name="sGender" value="С" required>
         </label>
     </div>
 
@@ -130,27 +130,27 @@
     <div class="radio-group">
         <label for="caseИ">
             И
-            <input type="radio" id="caseИ" name="sCase" value="И">
+            <input type="radio" id="caseИ" name="sCase" value="И" required>
         </label>
         <label for="caseР">
             Р
-            <input type="radio" id="caseР" name="sCase" value="Р">
+            <input type="radio" id="caseР" name="sCase" value="Р" required>
         </label>
         <label for="caseД">
             Д
-            <input type="radio" id="caseД" name="sCase" value="Д">
+            <input type="radio" id="caseД" name="sCase" value="Д" required>
         </label>
         <label for="caseВ">
             В
-            <input type="radio" id="caseВ" name="sCase" value="В">
+            <input type="radio" id="caseВ" name="sCase" value="В" required>
         </label>
         <label for="caseТ">
             Т
-            <input type="radio" id="caseТ" name="sCase" value="Т">
+            <input type="radio" id="caseТ" name="sCase" value="Т" required>
         </label>
         <label for="caseП">
             П
-            <input type="radio" id="caseП" name="sCase" value="П">
+            <input type="radio" id="caseП" name="sCase" value="П" required>
         </label>
     </div>
 
@@ -159,7 +159,7 @@
 
 <div class="previous-results-container">
     <div th:each="prevResult : ${previousResults}" class="previous-result">
-        <p th:text="${prevResult.nSum}"></p>
+        <p th:text="${prevResult.nSum} + ' ' + ${prevResult.sGender} + ' ' + ${prevResult.sCase}"></p>
         <p th:text="${prevResult.response}"></p>
         <div class="separator"></div>
     </div>
